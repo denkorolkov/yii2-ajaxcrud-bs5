@@ -42,7 +42,7 @@ CrudAsset::register($this);
             'toolbar'=> [
                 ['content'=>
                     Html::a('<i class="fas fa-plus"></i>', ['create'],
-                    ['role'=>'modal-remote','title'=><?= $generator->generateString('Create new '. Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>','class'=>'btn btn-secondary']).
+                    ['role'=>'modal-remote','title'=><?= $generator->generateString('Create new '. Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>,'class'=>'btn btn-secondary']).
                     Html::a('<i class="fas fa-redo"></i>', [''],
                     ['data-pjax'=>1, 'class'=>'btn btn-secondary', 'title'=><?= $generator->generateString('Reset Grid') ?>]).
                     '{toggleData}'.

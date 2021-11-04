@@ -100,11 +100,11 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         if($request->isAjax){
             Yii::$app->response->format = Response::FORMAT_JSON;
             return [
-                    'title'=> '<?= $generator->generateString($modelClass) ?> #'.<?= $actionParams ?>,
+                    'title'=> <?= $generator->generateString($modelClass.' #')?>.<?= $actionParams ?>,
                     'content'=>$this->renderAjax('view', [
                         'model' => $this->findModel(<?= $actionParams ?>),
                     ]),
-                    'footer'=> Html::button(<?= $generator->generateString('Close')?>,['class'=>'btn btn-secondary float-left','data-dismiss'=>'modal']).
+                    'footer'=> Html::button(<?= $generator->generateString('Close')?>,['class'=>'btn btn-secondary float-left','data-bs-dismiss'=>'modal']).
                             Html::a(<?= $generator->generateString('Edit')?>,['update','<?= substr($actionParams,1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
                 ];
         }else{
@@ -136,17 +136,17 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'content'=>$this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button(<?= $generator->generateString('Close')?>),['class'=>'btn btn-secondary float-left','data-dismiss'=>'modal']).
-                                Html::button(<?= $generator->generateString('Save')?>),['class'=>'btn btn-primary','type'=>'submit'])
+                    'footer'=> Html::button(<?= $generator->generateString('Close')?>,['class'=>'btn btn-secondary float-left','data-bs-dismiss'=>'modal']).
+                                Html::button(<?= $generator->generateString('Save')?>,['class'=>'btn btn-primary','type'=>'submit'])
 
                 ];
             }else if($model->load($request->post()) && $model->save()){
                 return [
                     'forceReload'=>'#crud-datatable-pjax',
                     'title'=> <?= $generator->generateString('Create new '.$modelClass) ?>,
-                    'content'=>'<span class="text-success">'.<?= $generator->generateString('Create '.$modelClass.' success')?>.</span>',
-                    'footer'=> Html::button(<?= $generator->generateString('Close')?>),['class'=>'btn btn-secondary float-left','data-dismiss'=>'modal']).
-                            Html::a(<?= $generator->generateString('Create More')?>),['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                    'content'=>'<span class="text-success">'.<?= $generator->generateString('Create '.$modelClass.' success')?>.'</span>',
+                    'footer'=> Html::button(<?= $generator->generateString('Close')?>,['class'=>'btn btn-secondary float-left','data-bs-dismiss'=>'modal']).
+                            Html::a(<?= $generator->generateString('Create More')?>,['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
 
                 ];
             }else{
@@ -155,8 +155,8 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'content'=>$this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button(<?= $generator->generateString('Close')?>),['class'=>'btn btn-secondary float-left','data-dismiss'=>'modal']).
-                                Html::button(<?= $generator->generateString('Save')?>),['class'=>'btn btn-primary','type'=>'submit'])
+                    'footer'=> Html::button(<?= $generator->generateString('Close')?>,['class'=>'btn btn-secondary float-left','data-bs-dismiss'=>'modal']).
+                                Html::button(<?= $generator->generateString('Save')?>,['class'=>'btn btn-primary','type'=>'submit'])
 
                 ];
             }
@@ -198,8 +198,8 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button(<?= $generator->generateString('Close')?>),['class'=>'btn btn-secondary float-left','data-dismiss'=>'modal']).
-                                Html::button(<?= $generator->generateString('Save')?>),['class'=>'btn btn-primary','type'=>'submit'])
+                    'footer'=> Html::button(<?= $generator->generateString('Close')?>,['class'=>'btn btn-secondary float-left','data-bs-dismiss'=>'modal']).
+                                Html::button(<?= $generator->generateString('Save')?>,['class'=>'btn btn-primary','type'=>'submit'])
                 ];
             }else if($model->load($request->post()) && $model->save()){
                 return [
@@ -208,8 +208,8 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'content'=>$this->renderAjax('view', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button(<?= $generator->generateString('Close')?>,['class'=>'btn btn-secondary float-left','data-dismiss'=>'modal']).
-                            Html::a(<?= $generator->generateString('Edit')?>),['update','<?= substr($actionParams,1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                    'footer'=> Html::button(<?= $generator->generateString('Close')?>,['class'=>'btn btn-secondary float-left','data-bs-dismiss'=>'modal']).
+                            Html::a(<?= $generator->generateString('Edit')?>,['update','<?= substr($actionParams,1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
                 ];
             }else{
                  return [
@@ -217,8 +217,8 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button(<?= $generator->generateString('Close')?>),['class'=>'btn btn-secondary float-left','data-dismiss'=>'modal']).
-                                Html::button(<?= $generator->generateString('Save')?>),['class'=>'btn btn-primary','type'=>'submit'])
+                    'footer'=> Html::button(<?= $generator->generateString('Close')?>,['class'=>'btn btn-secondary float-left','data-bs-dismiss'=>'modal']).
+                                Html::button(<?= $generator->generateString('Save')?>,['class'=>'btn btn-primary','type'=>'submit'])
                 ];
             }
         }else{
