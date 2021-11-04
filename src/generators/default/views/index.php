@@ -14,7 +14,7 @@ $urlParams = $generator->generateUrlParams();
 $nameAttribute = $generator->getNameAttribute();
 echo "<?php\n";
 ?>
-use yii\helper\Url;
+use yii\helpers\Url;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Modal;
 use kartik\grid\GridView;
