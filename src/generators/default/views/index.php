@@ -2,9 +2,9 @@
 
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
-use yii\bootstrap4\Modal;
+use yii\bootstrap5\Modal;
 use yii\helpers\Url;
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 
 
 /* @var $this yii\web\View */
@@ -14,12 +14,12 @@ $urlParams = $generator->generateUrlParams();
 $nameAttribute = $generator->getNameAttribute();
 echo "<?php\n";
 ?>
-use yii\helpers\Url;
-use yii\helpers\Html;
-use yii\bootstrap4\Modal;
+use yii\helper\Url;
+use yii\bootstrap5\Html;
+use yii\bootstrap5\Modal;
 use kartik\grid\GridView;
-use johnitvn\ajaxcrud\CrudAsset;
-use johnitvn\ajaxcrud\BulkButtonWidget;
+use denkorolkov\ajaxcrud\CrudAsset;
+use denkorolkov\ajaxcrud\BulkButtonWidget;
 
 /* @var $this yii\web\View */
 <?= !empty($generator->searchModelClass) ? "/* @var \$searchModel " . ltrim($generator->searchModelClass, '\\') . " */\n" : '' ?>
@@ -44,7 +44,7 @@ CrudAsset::register($this);
                     Html::a('<i class="fas fa-plus"></i>', ['create'],
                     ['role'=>'modal-remote','title'=> 'Create new <?= Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass))) ?>','class'=>'btn btn-secondary']).
                     Html::a('<i class="fas fa-redo"></i>', [''],
-                    ['data-pjax'=>1, 'class'=>'btn btn-secondary', 'title'=>'Reset Grid']).
+                    ['data-pjax'=>1, 'class'=>'btn btn-secondary', 'title'=>Yii::t('app','Reset Grid')]).
                     '{toggleData}'.
                     '{export}'
                 ],
@@ -64,8 +64,8 @@ CrudAsset::register($this);
                                     'role'=>'modal-remote-bulk',
                                     'data-confirm'=>false, 'data-method'=>false,// for overide yii data api
                                     'data-request-method'=>'post',
-                                    'data-confirm-title'=>'Are you sure?',
-                                    'data-confirm-message'=>'Are you sure want to delete this item'
+                                    'data-confirm-title'=>Yii::t('app','Are you sure?'),
+                                    'data-confirm-message'=>Yii::t('app','Are you sure want to delete this item')
                                 ]),
                         ]).
                         '<div class="clearfix"></div>',

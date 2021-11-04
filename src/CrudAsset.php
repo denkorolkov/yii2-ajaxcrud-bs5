@@ -1,6 +1,6 @@
 <?php
 
-namespace johnitvn\ajaxcrud;
+namespace denkorolkov\ajaxcrud;
 
 use yii\web\AssetBundle;
 
@@ -18,8 +18,8 @@ class CrudAsset extends AssetBundle
 
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap4\BootstrapAsset',
-        'yii\bootstrap4\BootstrapPluginAsset',
+        'yii\bootstrap5\BootstrapAsset',
+        'yii\bootstrap5\BootstrapPluginAsset',
         'kartik\grid\GridViewAsset',
     ];
 

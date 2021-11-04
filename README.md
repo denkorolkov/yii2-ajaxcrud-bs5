@@ -1,11 +1,9 @@
-yii2-ajaxcrud
+yii2-ajaxcrud-bs5
 =============
 
-[![Latest Stable Version](https://poser.pugx.org/johnitvn/yii2-ajaxcrud/v/stable)](https://packagist.org/packages/johnitvn/yii2-ajaxcrud)
-[![License](https://poser.pugx.org/johnitvn/yii2-ajaxcrud/license)](https://packagist.org/packages/johnitvn/yii2-ajaxcrud)
-[![Total Downloads](https://poser.pugx.org/johnitvn/yii2-ajaxcrud/downloads)](https://packagist.org/packages/johnitvn/yii2-ajaxcrud)
-
 Gii CRUD template for Single Page Ajax Administration for yii2
+
+Based on **johnitvn/yii2-ajaxcrud**
 
 ![yii2 ajaxcrud extension screenshot](https://c1.staticflickr.com/1/330/18659931433_6e3db2461d_o.png "yii2 ajaxcrud extension screenshot")
 
@@ -16,6 +14,7 @@ Features
 + Bulk delete suport
 + Pjax widget suport
 + Export function(pdf,html,text,csv, excel,json)
++ Bootstrap5 support
 
 Installation
 ------------
@@ -25,13 +24,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist johnitvn/yii2-ajaxcrud "^2.1"
+php composer.phar require --prefer-dist denkorolkov/yii2-ajaxcrud-bs5 "@dev"
 ```
 
 or add
 
 ```
-"johnitvn/yii2-ajaxcrud": "^2.1"
+"denkorolkov/yii2-ajaxcrud": "@dev"
 ```
 
 to the require section of your `composer.json` file.
@@ -48,7 +47,7 @@ Let 's add into modules config in your main config file
 'modules' => [
     'gridview' =>  [
         'class' => \kartik\grid\Module::class,
-        'bsVersion' => '4.x', // or '3.x'
+        'bsVersion' => '5.x', 
         // 'downloadAction' => 'gridview/export/download',
         // 'i18n' => [],
         // 'exportEncryptSalt' => 'tG85vd1',

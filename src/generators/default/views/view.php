@@ -11,7 +11,7 @@ $urlParams = $generator->generateUrlParams();
 echo "<?php\n";
 ?>
 
-use yii\widgets\DetailView;
+use kartik\detail\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model <?= ltrim($generator->modelClass, '\\') ?> */
@@ -20,6 +20,13 @@ use yii\widgets\DetailView;
  
     <?= "<?= " ?>DetailView::widget([
         'model' => $model,
+        'condensed'=>true,
+        'hover'=>true,
+        'mode'=>DetailView::MODE_VIEW,
+        'panel'=>[
+        'heading'=>'View # ' . $model->id,
+        'type'=>DetailView::TYPE_INFO,
+        ],
         'attributes' => [
 <?php
             if (($tableSchema = $generator->getTableSchema()) === false) {

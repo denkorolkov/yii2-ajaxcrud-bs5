@@ -1,34 +1,35 @@
 {
-    "name": "johnitvn/yii2-ajaxcrud",
+    "name": "denkorolkov/yii2-ajaxcrud-bs5",
     "description": "Gii CRUD template for Single Page Ajax Administration for yii2",
     "type": "yii2-extension",
     "keywords": ["yii2","extension","ajax","crud","gii","template","database"],
     "license": "Apache-2.0",
     "authors": [
         {
-            "name": "John Martin",
-            "email": "john.itvn@gmail.com",
-            "homepage": "https://github.com/johnitvn?tab=repositories"
+            "name": "Denis Korolkov",
+            "email": "right.ked@gmail.com",
+            "homepage": "https://github.com/denkorolkov?tab=repositories"
         }
     ],
     "support": {
-        "issues": "https://github.com/johnitvn/yii2-ajaxcrud/issues?state=open",
-        "source": "https://github.com/johnitvn/yii2-ajaxcrud"
+        "issues": "https://github.com/denkorolkov/yii2-ajaxcrud-bs5/issues?state=open",
+        "source": "https://github.com/denkorolkov/yii2-ajaxcrud-bs5"
     },
     "require": {
         "yiisoft/yii2": "*",
         "yiisoft/yii2-gii": "*",
-        "yiisoft/yii2-bootstrap4": "*",
+        "yiisoft/yii2-bootstrap5": "*",
 	    "kartik-v/yii2-grid": "^3.0.4",
         "kartik-v/yii2-mpdf": "^1.0.0",
-        "kartik-v/yii2-editable": "^1.7.3"
+        "kartik-v/yii2-editable": "^1.7.3",
+        "kartik-v/yii2-detail-view": "@dev"
     },
     "autoload": {
         "psr-4": {
-            "johnitvn\\ajaxcrud\\": "src/"
+            "denkorolkov\\ajaxcrud\\": "src/"
         }
     },
     "extra": {
-        "bootstrap": "johnitvn\\ajaxcrud\\Bootstrap"
+        "bootstrap": "denkorolkov\\ajaxcrud\\Bootstrap"
     }
 }
