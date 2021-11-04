@@ -57,6 +57,7 @@ CrudAsset::register($this);
                 'heading' => '<i class="fas fa-list-alt"></i> '.<?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass))).' listing') ?>,
                 'before'=>'<em>'.<?= $generator->generateString('* Resize table columns just like a spreadsheet by dragging the column edges.')?>.'</em>',
                 'after'=>BulkButtonWidget::widget([
+                            'buttonText'=>'<span class="fas fa-arrow-right"></span>&nbsp;&nbsp;'.<?= $generator->generateString('With selected')?>.'&nbsp;&nbsp;',
                             'buttons'=>Html::a('<i class="fas fa-trash"></i>&nbsp;'.<?= $generator->generateString('Delete All')?>,
                                 ["bulkdelete"] ,
                                 [
