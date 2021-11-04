@@ -54,7 +54,7 @@ CrudAsset::register($this);
             'responsive' => true,
             'panel' => [
                 'type' => 'primary',
-                'heading' => '<i class="fas fa-list-alt"></i> '.<?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass))).'listing') ?>,
+                'heading' => '<i class="fas fa-list-alt"></i> '.<?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass))).' listing') ?>,
                 'before'=>'<em>'.<?= $generator->generateString('* Resize table columns just like a spreadsheet by dragging the column edges.')?>.'</em>',
                 'after'=>BulkButtonWidget::widget([
                             'buttons'=>Html::a('<i class="fas fa-trash"></i>&nbsp;'.<?= $generator->generateString('Delete All')?>,
