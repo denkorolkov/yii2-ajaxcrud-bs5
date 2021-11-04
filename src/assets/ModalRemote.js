@@ -110,9 +110,9 @@ function ModalRemote(modalId) {
     this.setTitle = function (title) {
         // remove old title
         $(this.header).find('h4.modal-title').remove();
-        $(this.header).find('button.close').remove();
+        $(this.header).find('button.btn-close').remove();
         // add new title
-        $(this.header).append('<h4 class="modal-title">' + title + '</h4><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>');
+        $(this.header).append('<h4 class="modal-title">' + title + '</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>');
     };
 
     /**
