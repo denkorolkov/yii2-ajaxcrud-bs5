@@ -54,7 +54,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['post'],
                     'bulkdelete' => ['post'],
@@ -100,12 +100,12 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         if($request->isAjax){
             Yii::$app->response->format = Response::FORMAT_JSON;
             return [
-                    'title'=> "<?= $modelClass ?> #".<?= $actionParams ?>,
+                    'title'=> '<?= $generator->generateString($modelClass) ?> #'.<?= $actionParams ?>,
                     'content'=>$this->renderAjax('view', [
                         'model' => $this->findModel(<?= $actionParams ?>),
                     ]),
-                    'footer'=> Html::button(Yii::t('app','Close'),['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                            Html::a(Yii::t('app','Edit'),['update','<?= substr($actionParams,1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                    'footer'=> Html::button(<?= $generator->generateString('Close')?>,['class'=>'btn btn-secondary float-left','data-dismiss'=>'modal']).
+                            Html::a(<?= $generator->generateString('Edit')?>,['update','<?= substr($actionParams,1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
                 ];
         }else{
             return $this->render('view', [
@@ -132,31 +132,31 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
             Yii::$app->response->format = Response::FORMAT_JSON;
             if($request->isGet){
                 return [
-                    'title'=> "Create new <?= $modelClass ?>",
+                    'title'=><?= $generator->generateString('Create new '.$modelClass) ?>,
                     'content'=>$this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button(Yii::t('app','Close'),['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button(Yii::t('app','Save'),['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer'=> Html::button(<?= $generator->generateString('Close')?>),['class'=>'btn btn-secondary float-left','data-dismiss'=>'modal']).
+                                Html::button(<?= $generator->generateString('Save')?>),['class'=>'btn btn-primary','type'=>'submit'])
 
                 ];
             }else if($model->load($request->post()) && $model->save()){
                 return [
                     'forceReload'=>'#crud-datatable-pjax',
-                    'title'=> "Create new <?= $modelClass ?>",
-                    'content'=>'<span class="text-success">Create <?= $modelClass ?> success</span>',
-                    'footer'=> Html::button(Yii::t('app','Close'),['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                            Html::a(Yii::t('app','Create More'),['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                    'title'=> <?= $generator->generateString('Create new '.$modelClass) ?>,
+                    'content'=>'<span class="text-success">'.<?= $generator->generateString('Create '.$modelClass.' success')?>.</span>',
+                    'footer'=> Html::button(<?= $generator->generateString('Close')?>),['class'=>'btn btn-secondary float-left','data-dismiss'=>'modal']).
+                            Html::a(<?= $generator->generateString('Create More')?>),['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
 
                 ];
             }else{
                 return [
-                    'title'=> "Create new <?= $modelClass ?>",
+                    'title'=> <?= $generator->generateString('Create new '.$modelClass) ?>,
                     'content'=>$this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button(Yii::t('app','Close'),['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button(Yii::t('app','Save'),['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer'=> Html::button(<?= $generator->generateString('Close')?>),['class'=>'btn btn-secondary float-left','data-dismiss'=>'modal']).
+                                Html::button(<?= $generator->generateString('Save')?>),['class'=>'btn btn-primary','type'=>'submit'])
 
                 ];
             }
@@ -194,31 +194,31 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
             Yii::$app->response->format = Response::FORMAT_JSON;
             if($request->isGet){
                 return [
-                    'title'=> "Update <?= $modelClass ?> #".<?= $actionParams ?>,
+                    'title'=> <?= $generator->generateString('Update '.$modelClass.' #')?>.<?= $actionParams ?>,
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button(Yii::t('app','Close'),['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button(Yii::t('app','Save'),['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer'=> Html::button(<?= $generator->generateString('Close')?>),['class'=>'btn btn-secondary float-left','data-dismiss'=>'modal']).
+                                Html::button(<?= $generator->generateString('Save')?>),['class'=>'btn btn-primary','type'=>'submit'])
                 ];
             }else if($model->load($request->post()) && $model->save()){
                 return [
                     'forceReload'=>'#crud-datatable-pjax',
-                    'title'=> "<?= $modelClass ?> #".<?= $actionParams ?>,
+                    'title'=> <?= $generator->generateString($modelClass.' #')?>.<?= $actionParams ?>,
                     'content'=>$this->renderAjax('view', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button(Yii::t('app','Close'),['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                            Html::a(Yii::t('app','Edit'),['update','<?= substr($actionParams,1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                    'footer'=> Html::button(<?= $generator->generateString('Close')?>,['class'=>'btn btn-secondary float-left','data-dismiss'=>'modal']).
+                            Html::a(<?= $generator->generateString('Edit')?>),['update','<?= substr($actionParams,1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
                 ];
             }else{
                  return [
-                    'title'=> "Update <?= $modelClass ?> #".<?= $actionParams ?>,
+                    'title'=> <?= $generator->generateString('Update '.$modelClass.' #')?>.<?= $actionParams ?>,
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button(Yii::t('app','Close'),['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button(Yii::t('app','Save'),['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer'=> Html::button(<?= $generator->generateString('Close')?>),['class'=>'btn btn-secondary float-left','data-dismiss'=>'modal']).
+                                Html::button(<?= $generator->generateString('Save')?>),['class'=>'btn btn-primary','type'=>'submit'])
                 ];
             }
         }else{
